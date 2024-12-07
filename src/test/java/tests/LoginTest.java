@@ -9,11 +9,11 @@ import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends BaseTest {
 
-    @Epic("Модуль логтна интернет-магазина")
+    @Epic("Модуль логина интернет-магазина")
     @Feature("TMS-56")
     @Story("TNS-56.67")
     @Severity(SeverityLevel.BLOCKER)
-    @Owner("Khrol Na Ser bla@gmail.com")
+    @Owner("Kadrova Kseniya kadrova@gmail.com")
     @TmsLink("UrnSu")
     @Issue("3")
     @Description("Проверка входа в систему интернет-магазина")
@@ -26,7 +26,7 @@ public class LoginTest extends BaseTest {
         assertEquals("Products", productsPage.getTitle());
     }
 
-    @DataProvider(name = "blabla")
+    @DataProvider(name = "param")
     public Object[][] loginData() {
         return new Object[][]{
                 {"locked_out_user", password, "Epic sadface: Sorry, this user has been locked out."},
@@ -35,7 +35,7 @@ public class LoginTest extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "blabla")
+    @Test(dataProvider = "param")
     public void loginWrongData(String user, String pass, String errorMsg) {
         loginPage.open();
         loginPage.login(user, pass);
