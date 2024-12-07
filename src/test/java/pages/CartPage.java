@@ -17,17 +17,19 @@ public class CartPage extends BasePage {
         driver.findElement(title).isDisplayed();
         return true;
     }
+
     public boolean qtyElementIsDisplayed() {
         driver.findElement(qtyElement).isDisplayed();
         return true;
     }
+
     public boolean descriptionElementIsDisplayed() {
         driver.findElement(descriptionElement).isDisplayed();
         return true;
     }
+
     public boolean buttonIsDisplayed() {
         driver.findElement(button).isDisplayed();
         return true;
     }
-
 }

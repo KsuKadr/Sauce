@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import static sun.security.jgss.GSSUtil.login;
 
 public class LoginTest extends BaseTest {
 
@@ -20,10 +21,11 @@ public class LoginTest extends BaseTest {
     @Flaky
     @Test(description = "авторизация под верными данными")
     public void correctLogin() {
-        loginPage.open();
-        loginPage.login(user, password);
-        assertTrue(productsPage.isDisplayed(), "");
-        assertEquals("Products", productsPage.getTitle());
+        loginPage
+                .open()
+                .login(user, password);
+        assertTrue(productsPage.isDisplayed());
+        assertEquals(productsPage.getTitle(), "Products");
     }
 
     @DataProvider(name = "param")
@@ -37,8 +39,9 @@ public class LoginTest extends BaseTest {
 
     @Test(dataProvider = "param")
     public void loginWrongData(String user, String pass, String errorMsg) {
-        loginPage.open();
-        loginPage.login(user, pass);
+        loginPage
+                .open()
+                .login(user,pass);
         assertEquals(loginPage.getErrorMessage(), errorMsg);
     }
 }

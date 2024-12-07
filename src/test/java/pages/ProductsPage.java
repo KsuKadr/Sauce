@@ -36,8 +36,9 @@ public class ProductsPage extends BasePage {
     public void addToCart(int index) {
         driver.findElements(addToCartBtn).get(index).click();
     }
+
     public boolean removeBtn(int index) {
-      return   driver.findElements(removeBtn).get(index).isDisplayed();
+        return driver.findElements(removeBtn).get(index).isDisplayed();
     }
 
     public boolean isDisplayed() {
@@ -45,7 +46,7 @@ public class ProductsPage extends BasePage {
         return true;
     }
 
-    public String getCountInCart(){
+    public String getCountInCart() {
         return driver.findElement(cartCount).getText();
     }
 
